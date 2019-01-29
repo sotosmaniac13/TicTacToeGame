@@ -274,9 +274,9 @@
             this.label6.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label6.Location = new System.Drawing.Point(370, 66);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(45, 17);
+            this.label6.Size = new System.Drawing.Size(15, 17);
             this.label6.TabIndex = 8;
-            this.label6.Text = "label6";
+            this.label6.Text = "0";
             // 
             // label7
             // 
@@ -285,9 +285,9 @@
             this.label7.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label7.Location = new System.Drawing.Point(370, 152);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 17);
+            this.label7.Size = new System.Drawing.Size(15, 17);
             this.label7.TabIndex = 9;
-            this.label7.Text = "label7";
+            this.label7.Text = "0";
             // 
             // label8
             // 
@@ -307,9 +307,9 @@
             this.label9.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.label9.Location = new System.Drawing.Point(370, 269);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(45, 17);
+            this.label9.Size = new System.Drawing.Size(15, 17);
             this.label9.TabIndex = 11;
-            this.label9.Text = "label9";
+            this.label9.Text = "0";
             // 
             // Game
             // 

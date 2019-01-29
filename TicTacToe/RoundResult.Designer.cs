@@ -85,8 +85,10 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RoundResult";
+            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Round Result";
+            this.TopMost = true;
             this.ResumeLayout(false);
             this.PerformLayout();
 

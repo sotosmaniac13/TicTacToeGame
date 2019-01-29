@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TicTacToe.Properties;
 
@@ -17,37 +11,30 @@ namespace TicTacToe
         Player player2 = new Player();
         Player CurrentPlayer { get; set; }
         int clickedBoxes = 0;
-        int Draws = 0;
-        
+
         
         public Game()
         {
             InitializeComponent();
         }
+        
 
         public void NewGame(string Pl1, string Pl2)
         {
             player1.Name = Pl1;
-            player1.Wins = 0;
             player2.Name = Pl2;
-            player2.Wins = 0;
 
             CurrentPlayer = FirstPlayer(player1, player2);
 
             label1.Text = player1.Name;
             label3.Text = player2.Name;
-            label6.Text = player1.Wins.ToString();
-            label7.Text = player2.Wins.ToString();
-            label9.Text = Draws.ToString();
+
             label5.Text = "Current player:  " + CurrentPlayer.Name;
         }
-
-        
         
 
-
-        //Returns which player plays first
-        public Player FirstPlayer(Player Pl1, Player Pl2)
+        //Returns which player plays first.
+        private Player FirstPlayer(Player Pl1, Player Pl2)
         {
             Random rndm = new Random();
             int firstPlayer = rndm.Next(1, 3);
@@ -60,7 +47,9 @@ namespace TicTacToe
                 return Pl2;
         }
 
-        public void ChangePlayerOnEachTurn(Player player)
+
+        //Changes Player On Each Turn.
+        private void ChangePlayerOnEachTurn(Player player)
         {
             if (player == player1)
             {
@@ -72,7 +61,8 @@ namespace TicTacToe
             }
         }
 
-        //Insert X or O symbol depending on the current player that clicked on a button.
+
+        //Inserts X or O symbol depending on the current player that clicked on a button.
         private Bitmap Box_Click(Player player)
         {
             if (player == player1)
@@ -87,71 +77,48 @@ namespace TicTacToe
             }
         }
 
-        //Check if there is a winner on each turn.
-        public void IsThereAWinner(Player player)
+
+        //Checks if there is a winner on each turn.
+        private void IsThereAWinner(Player winner)
         {
-            if(player.ClickedButtons.Contains(1) && player.ClickedButtons.Contains(2) && player.ClickedButtons.Contains(3))
+            if(winner.ClickedButtons.Contains(1) && winner.ClickedButtons.Contains(2) && winner.ClickedButtons.Contains(3))
             {
-                player.Wins += 1;
-                ChangeLabelValues(player);
-                LockGrid();
-                ResultScreen(player);
+                WinnerFound(winner);
             }
 
-            else if (player.ClickedButtons.Contains(4) && player.ClickedButtons.Contains(5) && player.ClickedButtons.Contains(6))
+            else if (winner.ClickedButtons.Contains(4) && winner.ClickedButtons.Contains(5) && winner.ClickedButtons.Contains(6))
             {
-                player.Wins += 1;
-                ChangeLabelValues(player);
-                LockGrid();
-                ResultScreen(player);
+                WinnerFound(winner);
             }
 
-            else if (player.ClickedButtons.Contains(7) && player.ClickedButtons.Contains(8) && player.ClickedButtons.Contains(9))
+            else if (winner.ClickedButtons.Contains(7) && winner.ClickedButtons.Contains(8) && winner.ClickedButtons.Contains(9))
             {
-                player.Wins += 1;
-                ChangeLabelValues(player);
-                LockGrid();
-                ResultScreen(player);
+                WinnerFound(winner);
             }
 
-            else if (player.ClickedButtons.Contains(1) && player.ClickedButtons.Contains(4) && player.ClickedButtons.Contains(7))
+            else if (winner.ClickedButtons.Contains(1) && winner.ClickedButtons.Contains(4) && winner.ClickedButtons.Contains(7))
             {
-                player.Wins += 1;
-                ChangeLabelValues(player);
-                LockGrid();
-                ResultScreen(player);
+                WinnerFound(winner);
             }
 
-            else if (player.ClickedButtons.Contains(2) && player.ClickedButtons.Contains(5) && player.ClickedButtons.Contains(8))
+            else if (winner.ClickedButtons.Contains(2) && winner.ClickedButtons.Contains(5) && winner.ClickedButtons.Contains(8))
             {
-                player.Wins += 1;
-                ChangeLabelValues(player);
-                LockGrid();
-                ResultScreen(player);
+                WinnerFound(winner);
             }
 
-            else if (player.ClickedButtons.Contains(3) && player.ClickedButtons.Contains(6) && player.ClickedButtons.Contains(9))
+            else if (winner.ClickedButtons.Contains(3) && winner.ClickedButtons.Contains(6) && winner.ClickedButtons.Contains(9))
             {
-                player.Wins += 1;
-                ChangeLabelValues(player);
-                LockGrid();
-                ResultScreen(player);
+                WinnerFound(winner);
             }
 
-            else if (player.ClickedButtons.Contains(1) && player.ClickedButtons.Contains(5) && player.ClickedButtons.Contains(9))
+            else if (winner.ClickedButtons.Contains(1) && winner.ClickedButtons.Contains(5) && winner.ClickedButtons.Contains(9))
             {
-                player.Wins += 1;
-                ChangeLabelValues(player);
-                LockGrid();
-                ResultScreen(player);
+                WinnerFound(winner);
             }
 
-            else if (player.ClickedButtons.Contains(3) && player.ClickedButtons.Contains(5) && player.ClickedButtons.Contains(7))
+            else if (winner.ClickedButtons.Contains(3) && winner.ClickedButtons.Contains(5) && winner.ClickedButtons.Contains(7))
             {
-                player.Wins += 1;
-                ChangeLabelValues(player);
-                LockGrid();
-                ResultScreen(player);
+                WinnerFound(winner);
             }
 
             else
@@ -167,14 +134,25 @@ namespace TicTacToe
             }
         }
 
-        public void ResultScreen(Player player)
+
+        //What to do when a winner is found.
+        private void WinnerFound(Player player)
+        {
+            player.Wins += 1;
+            ChangeLabelValues(player);
+            LockGrid();
+            ResultScreen(player);
+        }
+
+
+        //Shows ResultScreen if a turn ends.
+        private void ResultScreen(Player player)
         {
             RoundResult roundResult = new RoundResult();
             roundResult.label1.Text = player.Name;
             roundResult.Show();
         }
-
-        public void ResultScreen()
+        private void ResultScreen()
         {
             RoundResult roundResult = new RoundResult();
             roundResult.label1.Text = "It's a draw..";
@@ -182,8 +160,9 @@ namespace TicTacToe
             roundResult.Show();
         }
 
-        //Change scores on the board if any player wins or if there is a draw
-        public void ChangeLabelValues(Player player)
+
+        //Changes scores on the board if any player wins or if there is a draw.
+        private void ChangeLabelValues(Player player)
         {
             if (player == player1)
             {
@@ -200,8 +179,9 @@ namespace TicTacToe
             }
         }
 
+
         //Adds the clicked button to the current player's list of clicked buttons.
-        public void AddClickToList(Player player, int buttonNum)
+        private void AddClickToList(Player player, int buttonNum)
         {
             if (player == player1)
             {
@@ -212,6 +192,53 @@ namespace TicTacToe
                 player2.ClickedButtons.Add(buttonNum);
             }
         }
+
+
+        //Locks the grid so no more buttons can be pressed when the round ends.
+        private void LockGrid()
+        {
+            pictureBox1.Enabled = false;
+            pictureBox2.Enabled = false;
+            pictureBox3.Enabled = false;
+            pictureBox4.Enabled = false;
+            pictureBox5.Enabled = false;
+            pictureBox6.Enabled = false;
+            pictureBox7.Enabled = false;
+            pictureBox8.Enabled = false;
+            pictureBox9.Enabled = false;
+        }
+
+
+        //Resets Game's grid for a new round.
+        private void NewRound()
+        {
+            pictureBox1.Image = null;
+            pictureBox1.Enabled = true;
+            pictureBox2.Image = null;
+            pictureBox2.Enabled = true;
+            pictureBox3.Image = null;
+            pictureBox3.Enabled = true;
+            pictureBox4.Image = null;
+            pictureBox4.Enabled = true;
+            pictureBox5.Image = null;
+            pictureBox5.Enabled = true;
+            pictureBox6.Image = null;
+            pictureBox6.Enabled = true;
+            pictureBox7.Image = null;
+            pictureBox7.Enabled = true;
+            pictureBox8.Image = null;
+            pictureBox8.Enabled = true;
+            pictureBox9.Image = null;
+            pictureBox9.Enabled = true;
+
+            player1.ClickedButtons.Clear();
+            player2.ClickedButtons.Clear();
+            clickedBoxes = 0;
+        }
+
+
+
+        //CLICK EVENTS
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -312,45 +339,6 @@ namespace TicTacToe
             pictureBox9.Enabled = false;
         }
         
-        private void LockGrid()
-        {
-            pictureBox1.Enabled = false;
-            pictureBox2.Enabled = false;
-            pictureBox3.Enabled = false;
-            pictureBox4.Enabled = false;
-            pictureBox5.Enabled = false;
-            pictureBox6.Enabled = false;
-            pictureBox7.Enabled = false;
-            pictureBox8.Enabled = false;
-            pictureBox9.Enabled = false;
-        }
-
-        //Reset Game's Grid
-        private void NewRound()
-        {
-            pictureBox1.Image = null;
-            pictureBox1.Enabled = true;
-            pictureBox2.Image = null;
-            pictureBox2.Enabled = true;
-            pictureBox3.Image = null;
-            pictureBox3.Enabled = true;
-            pictureBox4.Image = null;
-            pictureBox4.Enabled = true;
-            pictureBox5.Image = null;
-            pictureBox5.Enabled = true;
-            pictureBox6.Image = null;
-            pictureBox6.Enabled = true;
-            pictureBox7.Image = null;
-            pictureBox7.Enabled = true;
-            pictureBox8.Image = null;
-            pictureBox8.Enabled = true;
-            pictureBox9.Image = null;
-            pictureBox9.Enabled = true;
-
-            player1.ClickedButtons.Clear();
-            player2.ClickedButtons.Clear();
-            clickedBoxes = 0;
-        }
 
         private void button10_Click(object sender, EventArgs e)
         {
@@ -361,7 +349,5 @@ namespace TicTacToe
         {
             Environment.Exit(0);
         }
-
-        
     }
 }
