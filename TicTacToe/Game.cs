@@ -286,7 +286,7 @@ namespace TicTacToe
         }
         
 
-        //Runs on every users' Click on the grid
+        //Runs on every user's Click on the grid
         private void PictureBoxClicked(object sender, EventArgs e)
         {
             PictureBox clickedPictureBox = (PictureBox)sender;
