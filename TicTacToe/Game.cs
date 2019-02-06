@@ -242,62 +242,55 @@ namespace TicTacToe
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            AddClickToList(CurrentPlayer, 1);
             PictureBoxClicked(sender, e);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            AddClickToList(CurrentPlayer, 2);
             PictureBoxClicked(sender, e);
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            AddClickToList(CurrentPlayer, 3);
             PictureBoxClicked(sender, e);
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            AddClickToList(CurrentPlayer, 4);
             PictureBoxClicked(sender, e);
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            AddClickToList(CurrentPlayer, 5);
             PictureBoxClicked(sender, e);
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            AddClickToList(CurrentPlayer, 6);
             PictureBoxClicked(sender, e);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            AddClickToList(CurrentPlayer, 7);
             PictureBoxClicked(sender, e);
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            AddClickToList(CurrentPlayer, 8);
             PictureBoxClicked(sender, e);
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            AddClickToList(CurrentPlayer, 9);
             PictureBoxClicked(sender, e);
         }
         
 
+        //Runs on every users' Click on the grid
         private void PictureBoxClicked(object sender, EventArgs e)
         {
             PictureBox clickedPictureBox = (PictureBox)sender;
+            AddClickToList(CurrentPlayer, Convert.ToInt16(clickedPictureBox.Tag));
             clickedPictureBox.Image = Box_Click(CurrentPlayer);
             clickedBoxes += 1;
             IsThereAWinner(CurrentPlayer);
