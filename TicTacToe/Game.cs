@@ -242,103 +242,70 @@ namespace TicTacToe
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = Box_Click(CurrentPlayer);
             AddClickToList(CurrentPlayer, 1);
-            clickedBoxes += 1;
-            IsThereAWinner(CurrentPlayer);
-            ChangePlayerOnEachTurn(CurrentPlayer);
-            label5.Text = "Current player:  " + CurrentPlayer.Name;
-            pictureBox1.Enabled = false;
+            PictureBoxClicked(sender, e);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            pictureBox2.Image = Box_Click(CurrentPlayer);
             AddClickToList(CurrentPlayer, 2);
-            clickedBoxes += 1;
-            IsThereAWinner(CurrentPlayer);
-            ChangePlayerOnEachTurn(CurrentPlayer);
-            label5.Text = "Current player:  " + CurrentPlayer.Name;
-            pictureBox2.Enabled = false;
+            PictureBoxClicked(sender, e);
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
         {
-            pictureBox3.Image = Box_Click(CurrentPlayer);
             AddClickToList(CurrentPlayer, 3);
-            clickedBoxes += 1;
-            IsThereAWinner(CurrentPlayer);
-            ChangePlayerOnEachTurn(CurrentPlayer);
-            label5.Text = "Current player:  " + CurrentPlayer.Name;
-            pictureBox3.Enabled = false;
+            PictureBoxClicked(sender, e);
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            pictureBox4.Image = Box_Click(CurrentPlayer);
             AddClickToList(CurrentPlayer, 4);
-            clickedBoxes += 1;
-            IsThereAWinner(CurrentPlayer);
-            ChangePlayerOnEachTurn(CurrentPlayer);
-            label5.Text = "Current player:  " + CurrentPlayer.Name;
-            pictureBox4.Enabled = false;
+            PictureBoxClicked(sender, e);
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            pictureBox5.Image = Box_Click(CurrentPlayer);
             AddClickToList(CurrentPlayer, 5);
-            clickedBoxes += 1;
-            IsThereAWinner(CurrentPlayer);
-            ChangePlayerOnEachTurn(CurrentPlayer);
-            label5.Text = "Current player:  " + CurrentPlayer.Name;
-            pictureBox5.Enabled = false;
+            PictureBoxClicked(sender, e);
         }
 
         private void pictureBox6_Click(object sender, EventArgs e)
         {
-            pictureBox6.Image = Box_Click(CurrentPlayer);
             AddClickToList(CurrentPlayer, 6);
-            clickedBoxes += 1;
-            IsThereAWinner(CurrentPlayer);
-            ChangePlayerOnEachTurn(CurrentPlayer);
-            label5.Text = "Current player:  " + CurrentPlayer.Name;
-            pictureBox6.Enabled = false;
+            PictureBoxClicked(sender, e);
         }
 
         private void pictureBox7_Click(object sender, EventArgs e)
         {
-            pictureBox7.Image = Box_Click(CurrentPlayer);
             AddClickToList(CurrentPlayer, 7);
-            clickedBoxes += 1;
-            IsThereAWinner(CurrentPlayer);
-            ChangePlayerOnEachTurn(CurrentPlayer);
-            label5.Text = "Current player:  " + CurrentPlayer.Name;
-            pictureBox7.Enabled = false;
+            PictureBoxClicked(sender, e);
         }
 
         private void pictureBox8_Click(object sender, EventArgs e)
         {
-            pictureBox8.Image = Box_Click(CurrentPlayer);
             AddClickToList(CurrentPlayer, 8);
-            clickedBoxes += 1;
-            IsThereAWinner(CurrentPlayer);
-            ChangePlayerOnEachTurn(CurrentPlayer);
-            label5.Text = "Current player:  " + CurrentPlayer.Name;
-            pictureBox8.Enabled = false;
+            PictureBoxClicked(sender, e);
         }
 
         private void pictureBox9_Click(object sender, EventArgs e)
         {
-            pictureBox9.Image = Box_Click(CurrentPlayer);
             AddClickToList(CurrentPlayer, 9);
+            PictureBoxClicked(sender, e);
+        }
+        
+
+        private void PictureBoxClicked(object sender, EventArgs e)
+        {
+            PictureBox clickedPictureBox = (PictureBox)sender;
+            clickedPictureBox.Image = Box_Click(CurrentPlayer);
             clickedBoxes += 1;
             IsThereAWinner(CurrentPlayer);
             ChangePlayerOnEachTurn(CurrentPlayer);
             label5.Text = "Current player:  " + CurrentPlayer.Name;
-            pictureBox9.Enabled = false;
+            clickedPictureBox.Enabled = false;
         }
-        
+
 
         private void button10_Click(object sender, EventArgs e)
         {
